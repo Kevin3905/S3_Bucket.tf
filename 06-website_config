@@ -1,0 +1,9 @@
+###### To host the files as a website #######
+
+resource "aws_s3_bucket_website_configuration" "hosting" {
+  bucket = aws_s3_bucket.bucket_name.id
+
+  index_document {
+    suffix = "index.html"
+  }
+}
