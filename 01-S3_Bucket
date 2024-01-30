@@ -1,0 +1,10 @@
+##### creates and names bucket in AWS #####
+
+resource "aws_s3_bucket" "bucket_name" {
+  bucket = "bucket_name"
+
+  tags = {
+    Name        = "tag-name"
+    Environment = "AWS/ADO"
+  }
+}
