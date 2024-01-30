@@ -1,0 +1,14 @@
+####### Upload the files into the bucket #########
+
+resource "aws_s3_bucket_object" "object_name" {
+    bucket = aws_s3_bucket.bucket_name.id
+    for_each = {
+        
+        "object_name.html"  = "text/html"
+        
+    }
+    key = each.key
+    source = "./${each.key}"
+    content_type = each.value
+    etag = filemd5("./${each.key}")
+}
